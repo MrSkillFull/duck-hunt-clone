@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ev3cs2lwln3q"]
+
+[ext_resource type="Script" uid="uid://ddxwddffiwny5" path="res://alvo.gd" id="1_8cu02"]
+[ext_resource type="Texture2D" uid="uid://cl0fu7qytl4cp" path="res://Resources/alvo.png" id="1_npyt8"]
+[ext_resource type="AudioStream" uid="uid://bf8ry1jhs12qj" path="res://Resources/sons/tiro.wav" id="2_8cu02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0ueq"]
+size = Vector2(34, 30)
+
+[node name="Alvo" type="Area2D"]
+script = ExtResource("1_8cu02")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_npyt8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g0ueq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8cu02")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
