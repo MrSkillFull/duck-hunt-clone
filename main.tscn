@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr8tr1usj2rdc"]
+[gd_scene load_steps=5 format=3 uid="uid://dr8tr1usj2rdc"]
 
 [ext_resource type="Texture2D" uid="uid://du87mqylptmom" path="res://Resources/cenariotras.png" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://c6m838lf0hu32" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bjcgunkqyjc2m" path="res://Resources/cenariofrente.png" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dix3ggyek5ytx" path="res://pato.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ev3cs2lwln3q" path="res://alvo.tscn" id="5_7mycd"]
 
 [node name="Main" type="Node2D"]
@@ -19,12 +18,14 @@ z_index = 1
 texture = ExtResource("2_1bvp3")
 centered = false
 
-[node name="Pato" parent="." instance=ExtResource("3_lquwl")]
-position = Vector2(305, 568)
-
 [node name="Alvo" parent="." instance=ExtResource("5_7mycd")]
 
 [node name="GeraPato" type="Timer" parent="."]
 one_shot = true
 
+[node name="Espera" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [connection signal="timeout" from="GeraPato" to="." method="_on_gera_pato_timeout"]
+[connection signal="timeout" from="Espera" to="." method="_on_espera_timeout"]
