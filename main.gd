@@ -1,8 +1,17 @@
 extends Node2D
 
+var patosNaTela
+var pato = preload("res://pato.tscn")
+
 func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
 	$Alvo.position.x = get_local_mouse_position().x
 	$Alvo.position.y = get_local_mouse_position().y
+
+
+func _on_gera_pato_timeout() -> void:
+	patosNaTela = randi_range(1, 6)
+	for n in patosNaTela:
+		Nasce()

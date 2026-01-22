@@ -19,7 +19,12 @@ z_index = 1
 texture = ExtResource("2_1bvp3")
 centered = false
 
-[node name="pato" parent="." instance=ExtResource("3_lquwl")]
+[node name="Pato" parent="." instance=ExtResource("3_lquwl")]
 position = Vector2(305, 568)
 
 [node name="Alvo" parent="." instance=ExtResource("5_7mycd")]
+
+[node name="GeraPato" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="GeraPato" to="." method="_on_gera_pato_timeout"]
