@@ -13,12 +13,12 @@ func _process(delta: float) -> void:
 func Nasce() -> void:
 	var novoPato = pato.instantiate()
 	add_sibling(novoPato)
-	novoPato.position.x = randi_range(10,700)
+	novoPato.position.x = randi_range(50,650)
 	novoPato.position.y = 700
 	
 
 func _on_gera_pato_timeout() -> void:
-	patosNaTela = randi_range(1, 6)
+	patosNaTela = randi_range(3, 6)
 	for n in patosNaTela:
 		Nasce()
 

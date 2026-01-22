@@ -3,3 +3,5 @@
 /android/
 .nomedia
 /export_presets.cfg
+/deploy/
+/addons/
